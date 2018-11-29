@@ -2,7 +2,7 @@
 
     // json pretty format function
 	// incorporates code taken from php manual comment at http://php.net/manual/en/function.highlight-string.php#118550
-    function prettyJson($jsonObj)
+    function prettyJson($jsonObj, $addPre = true)
     {
 		// create jsonObject from string (if given param is string)
 		if('string' === gettype($jsonObj)) {
@@ -26,12 +26,10 @@
         $replace = '<span style="color: #333333;">\1</span><span style="color: \2">:';
         $text = preg_replace($pattern, $replace, $text);
 
-        return $text;
+        return ($addPre ? '<pre>'.$text.'</pre>' : $text);
     }
 
 
     $sampleJson = '{"a": 200, "b": "sample", "c": {"p1": "test", "p2": "test2"}, "d": [0, 23, 42]}';
-    echo '<pre>';
     echo prettyJson($sampleJson);
-    echo '</pre>';
 
