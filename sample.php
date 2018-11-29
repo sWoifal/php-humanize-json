@@ -2,7 +2,7 @@
 
     // json pretty format function
 	// incorporates code taken from php manual comment at http://php.net/manual/en/function.highlight-string.php#118550
-    function prettyJson($jsonObj, $addPre = true)
+    function humanizeJson($jsonObj, $addPre = true)
     {
 		// create jsonObject from string (if given param is string)
 		if('string' === gettype($jsonObj)) {
@@ -31,5 +31,5 @@
 
 
     $sampleJson = '{"a": 200, "b": "sample", "c": {"p1": "test", "p2": "test2"}, "d": [0, 23, 42]}';
-    echo prettyJson($sampleJson);
+    echo humanizeJson($sampleJson);
 
